@@ -1,6 +1,6 @@
 {
   "name": "kill-port-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A cross platform tool to kill process by port",
   "main": "index.js",
   "scripts": {

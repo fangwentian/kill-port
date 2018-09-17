@@ -14,11 +14,11 @@ const kill = (port) => {
         sh(
             `Stop-Process -Id (Get-NetTCPConnection -LocalPort ${port}).OwningProcess -Force`
         )
+    } else {
+        sh(
+            `lsof -i tcp:${port} | grep LISTEN | awk '{print $2}' | xargs kill -9`
+        )
     }
-
-    sh(
-        `lsof -i tcp:${port} | grep LISTEN | awk '{print $2}' | xargs kill -9`
-    )
 
     console.log(`kill ${port} successful ^_^ `)
 }
